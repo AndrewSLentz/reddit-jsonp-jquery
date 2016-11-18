@@ -5,6 +5,11 @@ function loadReddit(e) {
     $("#reddit-content").empty().append($('<h1></h1>').text('Please enter a subreddit'));
   } else {
     $.getJSON("https://www.reddit.com/r/" + subreddit + ".json", function(data) {
+      if (data.data.children.length < 1) {
+        $("#reddit-content").empty().append($('<h1></h1>').text('Error, subreddit not found'));
+        $("#reddit-content").append($('<p></p>').text('Please check your spelling, and ensure entry has no spaces or special characters'));
+        return;
+      }
       var group = $('<div class="group"></div>')
       $.each(data.data.children.slice(0, 10), function(i, post) {
         // var title = $('<h2></h2>')
