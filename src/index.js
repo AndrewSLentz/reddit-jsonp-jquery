@@ -2,7 +2,7 @@ function loadReddit(e) {
   e.preventDefault();
   var subreddit = $("#text").val();
   if (subreddit == '') {
-    alert("Please enter a subreddit");
+    $("#reddit-content").empty().append($('<h1></h1>').text('Please enter a subreddit'));
   } else {
     $.getJSON("https://www.reddit.com/r/" + subreddit + ".json", function(data) {
       var group = $('<div class="group"></div>')
