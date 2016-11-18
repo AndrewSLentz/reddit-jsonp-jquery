@@ -34,6 +34,9 @@ function loadReddit(e) {
         // $("#reddit-content").replaceWith('<hr>');
       })
       $("#reddit-content").empty().append(group);
+    }).fail(function(){
+      $("#reddit-content").empty().append($('<h1></h1>').text('Error, subreddit not found'));
+      $("#reddit-content").append($('<p></p>').text('Please check your spelling, and ensure entry has no spaces or special characters'));
     })
   }
 }
