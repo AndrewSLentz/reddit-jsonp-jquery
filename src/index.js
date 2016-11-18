@@ -7,7 +7,7 @@ function loadReddit(e) {
     $.getJSON("https://www.reddit.com/r/" + subreddit + ".json", function(data) {
       if (data.data.children.length < 1) {
         $("#reddit-content").empty().append($('<h1></h1>').text('Error, subreddit not found'));
-        $("#reddit-content").append($('<p></p>').text('Please check your spelling, and ensure entry has no spaces or special characters'));
+        $("#reddit-content").append($('<p></p>').text('Please check your spelling and ensure entry has no spaces or special characters.'));
         return;
       }
       var group = $('<div class="group"></div>')
@@ -41,7 +41,7 @@ function loadReddit(e) {
       $("#reddit-content").empty().append(group);
     }).fail(function(){
       $("#reddit-content").empty().append($('<h1></h1>').text('Error, subreddit not found'));
-      $("#reddit-content").append($('<p></p>').text('Please check your spelling, and ensure entry has no spaces or special characters'));
+      $("#reddit-content").append($('<p></p>').text('Please check your spelling and ensure entry has no spaces or special characters.'));
     })
   }
 }
