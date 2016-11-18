@@ -4,7 +4,7 @@ function loadReddit(e) {
   if (subreddit == '') {
     alert("Please enter a subreddit");
   } else {
-    $.getJSON("http://www.reddit.com/r/" + subreddit + ".json", function(data) {
+    $.getJSON("https://www.reddit.com/r/" + subreddit + ".json", function(data) {
       var group = $('<div class="group"></div>')
       $.each(data.data.children.slice(0, 10), function(i, post) {
         // var title = $('<h2></h2>')
